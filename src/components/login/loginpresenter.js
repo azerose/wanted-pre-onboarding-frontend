@@ -1,18 +1,33 @@
 import * as S from "./loginsytle";
+import { Link } from "react-router-dom";
 
 const LoginPresenter = (props) => {
   return (
     <>
-      <div>
+      <S.MainWrapper>
         <S.EmailSection>
-          <S.EmailImg src="/id.png/" />
-          <S.EmailInput type="text" onChange={props.onChangeEmail} />
+          <S.EmailInput
+            type="text"
+            placeholder="이메일을 입력해주세요"
+            onChange={props.onChangeEmail}
+          />
         </S.EmailSection>
         <S.PassWordSection>
-          <S.EmailImg src="/password.png/" />
-          <S.EmailInput type="password" onChange={props.onChangePassword} />
+          <S.EmailInput
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+            onChange={props.onChangePassword}
+          />
         </S.PassWordSection>
-      </div>
+        <S.LoginBtnSection>
+          <S.LoginBtn onClick={props.onClickLogin}>로그인</S.LoginBtn>
+        </S.LoginBtnSection>
+        <S.LoginBtnSection>
+          <Link to="/signup">
+            <S.LoginBtn>회원가입</S.LoginBtn>
+          </Link>
+        </S.LoginBtnSection>
+      </S.MainWrapper>
     </>
   );
 };
