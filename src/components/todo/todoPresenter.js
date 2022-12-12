@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import TodoListConatainer from "../todoList/todolistcontainer";
 import * as S from "./todostyle";
 
 const TodoPresenter = (props) => {
@@ -21,27 +22,16 @@ const TodoPresenter = (props) => {
           <div>삭제</div>
         </S.ListTitle>
         <S.ListWrapper>
-          {props.list.data?.map((el) => (
-            <S.Row key={el.id}>
-              <S.Column>{el.todo}</S.Column>
-              <S.Column>
-                <label>{!el.isCompleted ? "미완료" : "완료"}</label>
-                <button id={el.id} onClick={props.onClickComplete}>
-                  {!el.isCompleted ? "완료하기" : "되돌리기"}
-                </button>
-              </S.Column>
-              <S.Column>
-                <button id={el.id} onClick={props.onClickUpdate}>
-                  수정하기
-                </button>
-              </S.Column>
-              <S.Column>
-                <button id={el.id} onClick={props.onClickDelete}>
-                  삭제하기
-                </button>
-              </S.Column>
-            </S.Row>
-          ))}
+          {props.list.data?.map((el) => {
+            return (
+              <TodoListConatainer
+                key={el.id}
+                el={el}
+                list={props.list}
+                fetchData={props.fetchData}
+              />
+            );
+          })}
         </S.ListWrapper>
       </S.Wrapper>
     </>
