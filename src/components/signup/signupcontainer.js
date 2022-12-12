@@ -1,6 +1,7 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { errorMsg } from "../../commons/modalFunc";
+import { errorMsg, success } from "../../commons/modalFunc";
 import SignupPresenter from "./signupPresenter";
 
 const SignupContainer = () => {
@@ -16,7 +17,7 @@ const SignupContainer = () => {
     setPassword(event.target.value);
   };
 
-  const onClickSignUp = () => {
+  const onClickSignUp = async () => {
     if (!email.includes("@")) {
       errorMsg("이메일에는 @가 들어가야합니다");
       return;
@@ -25,7 +26,22 @@ const SignupContainer = () => {
       errorMsg("비밀번호는 8글자 이상입니다");
       return;
     }
-    navigate("/");
+    try {
+      await axios.post(
+        "https://pre-onboarding-selection-task.shop/auth/signup",
+        {
+          email,
+          password,
+        }
+      );
+
+      success("회원가입에 성공하였습니다");
+      navigate("/");
+    } catch (error) {
+      if (error instanceof Error) {
+        errorMsg(error.message);
+      }
+    }
   };
 
   return (
