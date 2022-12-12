@@ -42,7 +42,7 @@ const TodoConatainer = () => {
       .catch((err) => {
         errorMsg(err);
       });
-  }, [access_token]);
+  }, [access_token, navigate]);
 
   console.log(list);
 
