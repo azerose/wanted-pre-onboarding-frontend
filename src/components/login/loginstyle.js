@@ -36,7 +36,7 @@ export const LoginBtnSection = styled.section`
 `;
 
 export const LoginBtn = styled.button`
-  background: red;
+  background: ${(change) => (change ? "red" : "gray")};
   width: 100%;
   padding: 13px 0;
   border: none;

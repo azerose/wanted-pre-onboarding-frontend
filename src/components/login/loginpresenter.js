@@ -1,4 +1,4 @@
-import * as S from "./loginsytle";
+import * as S from "./loginstyle";
 import { Link } from "react-router-dom";
 
 const LoginPresenter = (props) => {

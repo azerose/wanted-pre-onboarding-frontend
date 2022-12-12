@@ -18,7 +18,13 @@ const SignupPresenter = (props) => {
           </S.InputBox>
         </S.InputWrapper>
         <S.FooterWrapper>
-          <S.SignUpBtn onClick={props.onClickSignUp}>제출</S.SignUpBtn>
+          {props.change ? (
+            <S.SignUpBtn change={props.change} onClick={props.onClickSignUp}>
+              제출
+            </S.SignUpBtn>
+          ) : (
+            <S.SignUpBtn disabled>제출</S.SignUpBtn>
+          )}
         </S.FooterWrapper>
       </S.MainSectionWrapper>
     </>

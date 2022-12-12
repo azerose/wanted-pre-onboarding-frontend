@@ -7,6 +7,8 @@ import SignupPresenter from "./signupPresenter";
 const SignupContainer = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [change, setChange] = useState(false);
+
   const navigate = useNavigate();
 
   const onChangeEmail = (event) => {
@@ -15,6 +17,9 @@ const SignupContainer = () => {
 
   const onChangePassword = (event) => {
     setPassword(event.target.value);
+    if (email.includes("@") && password.length >= 8) {
+      setChange(true);
+    }
   };
 
   const onClickSignUp = async () => {
@@ -34,7 +39,6 @@ const SignupContainer = () => {
           password,
         }
       );
-
       success("회원가입에 성공하였습니다");
       navigate("/");
     } catch (error) {
@@ -49,6 +53,7 @@ const SignupContainer = () => {
       onChangeEmail={onChangeEmail}
       onChangePassword={onChangePassword}
       onClickSignUp={onClickSignUp}
+      change={change}
     />
   );
 };

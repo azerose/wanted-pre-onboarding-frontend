@@ -40,7 +40,10 @@ export const SignUpBtn = styled.button`
   width: 460px;
   height: 50px;
   border: none;
-  background-color: red;
+  background-color: ${({ change }) => (change ? "red" : "gray")};
   color: white;
   border-radius: 5px;
+  :disabled {
+    ${(change) => !change}
+  }
 `;

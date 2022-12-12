@@ -1,10 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import LoginContainer from "./components/login/logincontainer";
 import SignupContainer from "./components/signup/signupcontainer";
 import TodoConatainer from "./components/todo/todocontainer";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>
@@ -14,6 +13,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

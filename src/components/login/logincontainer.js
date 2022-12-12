@@ -7,7 +7,9 @@ import LoginPresenter from "./loginpresenter";
 const LoginContainer = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
+  if (localStorage.getItem("accessToken")) navigate("/todo");
 
   const onChangeEmail = (event) => {
     setEmail(event.target.value);
