@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { errorMsg, success } from "../../commons/modalFunc";
 import LoginPresenter from "./loginpresenter";
@@ -9,7 +9,9 @@ const LoginContainer = () => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  if (localStorage.getItem("accessToken")) navigate("/todo");
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) navigate("/todo");
+  }, [navigate]);
 
   const onChangeEmail = (event) => {
     setEmail(event.target.value);
