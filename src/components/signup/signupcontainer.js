@@ -17,7 +17,7 @@ const SignupContainer = () => {
 
   const onChangePassword = (event) => {
     setPassword(event.target.value);
-    if (email.includes("@") && password.length > 7) {
+    if (email.includes("@") && password.length > 6) {
       setChange(true);
     }
   };
