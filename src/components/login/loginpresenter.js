@@ -19,25 +19,22 @@ const LoginPresenter = (props) => {
             onChange={props.onChangePassword}
           />
         </S.PassWordSection>
-        {props.change ? (
-          <>
-            <S.LoginBtnSection>
+        <S.LoginBtnSection>
+          {props.change ? (
+            <>
               <S.LoginBtn change={props.change} onClick={props.onClickLogin}>
                 로그인
               </S.LoginBtn>
-            </S.LoginBtnSection>
-          </>
-        ) : (
-          <>
-            <S.LoginBtnSection>
+            </>
+          ) : (
+            <>
               <S.LoginBtn disabled>로그인</S.LoginBtn>
-            </S.LoginBtnSection>
-          </>
-        )}
-
+            </>
+          )}
+        </S.LoginBtnSection>
         <S.LoginBtnSection>
           <Link to="/signup">
-            <S.LoginBtn>회원가입</S.LoginBtn>
+            <S.LoginBtn change={true}>회원가입</S.LoginBtn>
           </Link>
         </S.LoginBtnSection>
       </S.MainWrapper>
