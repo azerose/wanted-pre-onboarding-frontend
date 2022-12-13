@@ -7,6 +7,7 @@ import LoginPresenter from "./loginpresenter";
 const LoginContainer = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [change, setChange] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -19,6 +20,11 @@ const LoginContainer = () => {
 
   const onChangePassword = (event) => {
     setPassword(event.target.value);
+    if (email.includes("@") && password.length > 6) {
+      setChange(true);
+    } else {
+      setChange(false);
+    }
   };
 
   const onClickLogin = async () => {
@@ -45,6 +51,7 @@ const LoginContainer = () => {
       onChangeEmail={onChangeEmail}
       onChangePassword={onChangePassword}
       onClickLogin={onClickLogin}
+      change={change}
     />
   );
 };

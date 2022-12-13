@@ -19,6 +19,8 @@ const SignupContainer = () => {
     setPassword(event.target.value);
     if (email.includes("@") && password.length > 6) {
       setChange(true);
+    } else {
+      setChange(false);
     }
   };
 

@@ -37,6 +37,9 @@ export const LoginBtnSection = styled.section`
 
 export const LoginBtn = styled.button`
   background: ${(change) => (change ? "red" : "gray")};
+  :disabled {
+    ${(change) => !change}
+  }
   width: 100%;
   padding: 13px 0;
   border: none;
