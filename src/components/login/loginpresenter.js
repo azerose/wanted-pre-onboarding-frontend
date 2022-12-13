@@ -22,7 +22,9 @@ const LoginPresenter = (props) => {
         {props.change ? (
           <>
             <S.LoginBtnSection>
-              <S.LoginBtn onClick={props.onClickLogin}>로그인</S.LoginBtn>
+              <S.LoginBtn change={props.change} onClick={props.onClickLogin}>
+                로그인
+              </S.LoginBtn>
             </S.LoginBtnSection>
           </>
         ) : (
